@@ -1,0 +1,27 @@
+.rcorners4 {
+    display: inline-flex;
+    border-radius: 15px;
+    background: yellow;
+    padding: 20px; 
+    width: 200px;
+    height: 150px; 
+    margin-bottom: 10px;
+    margin-right: 5px;
+  } 
+
+.icon {
+    position: relative;
+    bottom: 30px;
+    right: -195px;
+}
+
+.menu {
+    
+    bottom: 100px;
+    left: 25px;
+}
+
+.container{
+    padding: 20px;
+}
+

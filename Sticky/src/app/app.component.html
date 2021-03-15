@@ -1,0 +1,13 @@
+<div>
+    <mat-toolbar color="accent">
+      <span style="text-align: right;">Sticky App</span> 
+      <span class="example-spacer"></span>
+      <p class="menu" mat-button [matMenuTriggerFor]="belowMenu"><mat-icon>assignment</mat-icon></p>
+        <mat-menu #belowMenu="matMenu">
+            <button mat-menu-item>Add Sticky</button>
+          </mat-menu>
+    </mat-toolbar>
+</div>
+<router-outlet></router-outlet>
+
+
