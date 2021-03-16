@@ -1,7 +1,9 @@
 <html>
   <body>
-    <div class="container"> 
-    <div class="rcorners4" *ngFor="let sticky of allSticky"> 
+  <div class = "sideContainer">
+    <div cdkDropList [cdkDropListData]="allSticky" [cdkDropListConnectedTo]="otherList"  (cdkDropListDropped)="drop($event)" class="container" #firstList="cdkDropList"> 
+      <p style="font-size:25px ;"><b>TO-DO Sticky Tasks</b></p>
+      <div cdkDrag class="rcorners4" *ngFor="let sticky of allSticky"> 
         <p class="icon">{{sticky.likes}}</p>
         <p class="menu" mat-button [matMenuTriggerFor]="belowMenu"><mat-icon>class</mat-icon></p>
         <mat-menu #belowMenu="matMenu">
@@ -10,7 +12,21 @@
             <button mat-menu-item (click)="likeSticky(sticky._id)">Like Sticky</button>
           </mat-menu>
       <label style="align-self: center;"><strong>{{sticky.note}}</strong></label> 
+      </div>
     </div>
-</div> 
+    <div cdkDropList [cdkDropListData]="completedSticky" [cdkDropListConnectedTo]="firstList" (cdkDropListDropped)="drop($event)"  class="container" #otherList="cdkDropList">
+      <p style="font-size:25px ;"><b>Done Sticky Tasks</b></p>
+      <div cdkDrag class="rcorners4" *ngFor="let sticky of completedSticky"> 
+        <p class="icon">{{sticky.likes}}</p>
+        <p class="menu" mat-button [matMenuTriggerFor]="belowMenu"><mat-icon>class</mat-icon></p>
+        <mat-menu #belowMenu="matMenu">
+            <button mat-menu-item (click)="deleteSticky(sticky._id)"> Delete Sticky</button>
+            <button mat-menu-item  (click)="editSticky(sticky._id)">Edit Sticky</button>
+            <button mat-menu-item (click)="likeSticky(sticky._id)">Like Sticky</button>
+          </mat-menu>
+      <label style="align-self: center;"><strong>{{sticky.note}}</strong></label> 
+      </div>
+    </div>
+</div>
   </body>
 </html>

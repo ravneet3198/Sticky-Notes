@@ -14,6 +14,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { AddstickyComponent } from './addsticky/addsticky.component';
 import { UpdatestickyComponent } from './updatesticky/updatesticky.component';
 import {FormsModule} from '@angular/forms'
+import {DragDropModule} from '@angular/cdk/drag-drop'
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {FormsModule} from '@angular/forms'
     MatMenuModule,
     MatIconModule,
     MatToolbarModule,
-    FormsModule
+    FormsModule,
+    DragDropModule
   ],
   providers: [StickyserviceService],
   bootstrap: [AppComponent]

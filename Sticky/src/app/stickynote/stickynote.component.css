@@ -1,5 +1,5 @@
 .rcorners4 {
-    display: inline-flex;
+    display: block;
     border-radius: 15px;
     background: yellow;
     padding: 20px; 
@@ -22,6 +22,11 @@
 }
 
 .container{
-    padding: 20px;
+    margin: 50px;
+}
+
+.sideContainer{
+    display: flex;
+    margin-left: 550px;
 }
 

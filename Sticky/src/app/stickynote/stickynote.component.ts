@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {StickyserviceService} from '../stickyservice.service'
+import {StickyserviceService} from '../stickyservice.service';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {sticky} from '../../stickySchema'
 
 
 
@@ -11,6 +13,7 @@ import {StickyserviceService} from '../stickyservice.service'
 export class StickynoteComponent implements OnInit {
   allSticky:any = []
   index:number
+  completedSticky:any = []
   constructor(private Stickyservice:StickyserviceService) { }
 
   ngOnInit(): void {
@@ -49,5 +52,14 @@ export class StickynoteComponent implements OnInit {
       console.log('called edit'+id)
   }
 
-
+  drop(event:CdkDragDrop<sticky[]>){
+      console.log(this.allSticky)
+      if(event.previousContainer !== event.container){
+          transferArrayItem(event.previousContainer.data,event.container.data,event.previousIndex,event.currentIndex)
+      }else{
+        moveItemInArray(this.allSticky,event.previousIndex,event.currentIndex);
+      }
+      
+  }
+  
 }
